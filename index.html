@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>마음거울</title>
+	<style type="text/css">
+		html{font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');  font-weight: normal; font-style: normal; /*scroll-behavior: smooth;*/}
+		@font-face {font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');   font-weight: normal; font-style: normal;}
+		body{margin: 0; background-color: #E6EFC5;}
+		*{box-sizing: border-box;}
+		
+		nav{position: fixed; z-index: 30;}
+
+
+		/*텍스트*/
+		h1{font-size: 35pt; margin-bottom: 25px; font-weight: normal;}
+		h2{font-size: 28pt; margin-bottom: 35px; font-weight: normal;}
+		.explain,p{font-size: 18pt; word-break: keep-all; 
+			line-height:1.45 ; margin: 0; letter-spacing:-1px;}
+		#font25{font-size: 25pt;}
+		.font15{font-size: 15pt;}
+		.textwhite{color: white;}
+		.textgreen1{color: #E6EFC5;}
+		.textgreen2{color: #7D9972;}
+		.textright{text-align: right;}
+		.textcenter{text-align: center;}
+		
+		/*배경*/
+		.back{width: 1200px; margin:auto;}
+		.height0{height: 50vh;}
+		.height{height: 100vh}
+		.height15{height: 150vh;}
+		.height2{height: 200vh;}
+		.width{width: 1200px;}
+		
+		.white{background: white;}
+		.green1{background: #E6EFC5;}
+		.green2{background: #7D9972;}
+		.black{background: black;}
+		.bg-none{background: none;}
+
+		/*display, position*/
+		.flex{width: 1200px; margin: auto; display: flex; flex-wrap:wrap;}
+		.col-1{margin:0px 10px; width: 180px}
+		.col-2{margin:0px 10px; width: 380px}
+		.col-3{margin:0px 10px; width: 580px;}
+		.col-4{margin:0px 10px; width: 780px; }
+		.col-5{margin:0px 10px; width: 980px; }
+		.col-6{margin:0px 10px; width: 1180px; }
+		.guide1{margin: 0px 10px;width: 360px}
+		.relative{position: relative;}
+		.absolute{position: absolute;}
+		.z0{z-index: 0;}
+		.z1{z-index: 1;}
+		.z2{z-index: 2;}
+		
+		/*사진배경*/
+		.img2p{background-image: url('lines.png'); background-size: cover;}
+		.text3p{background-image: url('mirrorx2.png'); background-size: cover;
+			background-attachment: fixed;
+			background-repeat: no-repeat;}
+		.opt2{background-image: url('option2back2.jpg'); background-size: cover; background-attachment: fixed;}
+		.paper{background-image: url('paper.png'); background-size: cover; background-attachment: fixed;}
+
+		/*이미지*/
+		/*1p 거울*/
+		.mirror0{position: absolute; top: 10vh;margin-left: 145px; margin-right: 145px;}
+		.mirror0_1{position: absolute;  top: 10vh; opacity: 0;margin-left: 145px; margin-right: 145px;
+			animation: opacity 4s cubic-bezier(.44,.08,.5,1.03) infinite alternate;}
+
+		/*4-5p 거울예시*/
+		.mindmirror{width: 768px; top: 50vh; left: 216px;}
+
+		/*Option 거울hover*/
+		.optionhov1_0{position: absolute; width: 345px; top: 30vh; left: 10vw;}
+		.optionhov1_1{position: absolute; width: 345px; top: 30vh; left: 10vw;opacity: 0;}
+		.optionhov2_0{position: absolute; width:578px; top:8vh; left:3vw}
+		.optionhov2_1{position: absolute; width:578px; top:8vh; left:3vw; opacity: 0;}
+		.optionhov3_0{position: absolute; width: 548px; top: 19vh; left: 1vw;}
+		.optionhov3_1{position: absolute; width: 548px; top: 19vh; left: 1vw; opacity: 0;}
+
+		.optionhov1_1:hover{opacity: 1; transition: 1s;}
+		.optionhov2_1:hover{opacity: 1; transition: 1s;}
+		.optionhov3_1:hover{opacity: 1; transition: 1s;}
+		
+		/*버튼*/
+		.clickbutton{border: 1px solid #7D9972; border-radius: 30px; width: 110px; height: 35px; background: none;font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');  font-weight: normal; font-style: normal; font-size: 14pt; color:#7D9972; text-align: center; margin-right: 10px; margin-top: 10px;}
+
+		.clickbutton:hover{background-color: #7D9972; color: white;}
+		textarea{resize: none; font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');  font-weight: normal; font-style: normal; font-size: 14pt; line-height: 18pt; padding: 5px;}
+
+		/*1p~*/
+		.page1
+		.pageoption0{padding-top: 34vh;}
+		.pageoption1{padding-top: 33vh;}
+		.pageoption23{padding-top: 34vh;}
+
+
+		/*caution page*/
+		.cautiontext{padding-top: 30vh; padding-left: 135px;padding-right: 135px;}
+		.cautionli{line-height: 1.55;font-size: 16pt; letter-spacing:-0.5px; word-break: keep-all;}
+
+		.logo{width: 230px;padding-top: 40px; padding-left: 0px; animation: rotate 4s infinite alternate linear;}
+
+		/*애니메이션*/
+		@keyframes opacity
+			{from{opacity: 0;} to{opacity: 1;}}
+		@keyframes rotate{from{transform: rotateY(0deg)} to{transform: rotateY(360deg)}}
+
+		.up{position:fixed;bottom:40px;right:40px; z-index: 3;}
+
+	</style>
+
+</head>
+<body>
+<!-- 	<section class="black">
+	<menu class="green1 flex">
+		<ul>
+		<li><a href=#b>스토리</a></li>
+		<br>
+		<li><a href=#e>사용방법</a></li>
+		<br>
+		<li><a href=#f>옵션</a></li>
+		<br>
+		<li><a href=#i>구성</a></li>
+		<br>
+		<li><a href=#j>주의사항</a></li>
+		</ul>
+	</menu>
+	</section> -->
+
+	<a class="up" href=#a><img src="up.png" style="width: 60px; "></a>
+
+	<section class="black">
+
+		<div class="flex black page1 height">
+
+			<div class="col-6 flex relative">
+				<div class="col-1"></div>
+				<div class="col-4 relative">
+				<img style="width: 470px;" src="mirror2.png" class="mirror0">
+				<img style="width: 470px;" src="22censor.png" class="mirror0_1">
+				</div>
+				<div class="col-1"></div>
+			</div>
+
+			<div class="col-6"></div>
+			<div class="col-6"></div>
+
+			<div class="col-6" style="padding-top:25vh;line-height: 1.5;">
+			<p class="textwhite textcenter">마음거울은 당신이 눈치채지 못한 마음을 읽어주는<br>감정분석 거울입니다.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="green2">
+	<div class="flex back green2 height" id="b" style="background-attachment: fixed;">
+		<div class="textright" style="margin-top: 130px; padding-right:5px; justify-content: right;">
+			<h1 class="textgreen1" style="width: 1175px;">
+			“도대체 왜 이러는 거야?”</h1>
+			<p class="textwhite textright">
+				이유없이 기분이 안 좋을 때, 특정 상황에 왠지 모르게 속상할 때<br>정체를 알 수 없는 이 문제를 해결하고 싶다는 생각이 드신 적 있나요?</p>
+		</div>
+		<div style="padding-left: 37px; padding-top: 50px;">
+			<h1 class="textgreen1">
+			“나도 내 마음을 모르겠어”</h1>
+			<p class="textwhite">
+			혹시 실체를 알 수 없는 마음 속 무언가 때문에 고통받고 계시지는 않았나요?
+			</p>
+		</div>
+	</div>
+	</section>
+
+	<section class="text3p">
+	<div class="flex back bg-none height">
+		<div style="margin-left: 35px; margin-top: 40px">
+			<h1>“거울아 거울아”</h1>
+			<p>그럴 때는 마음거울을 보세요<br>마음거울이 당신의 마음을 보여드릴게요.</p>
+			<p>현실을 마주하는 것은 쉽지 않지만, 분명 도움이 됩니다.</p>
+		</div>
+	</div>
+	</section>
+	
+	<section class="black relative">
+		
+	</div>
+	<div class="green1">
+		<div class="back green1 height relative">
+			<div class="textcenter width">
+				<div style="height: 15vh; margin-top: 5vh;"></div>
+				<h2 class="textblack">현재상태</h2>
+				<p class="textgreen2" style="margin-top:10px">얼굴 근육의 미세한 움직임과 시선, 표정의 변화를 측정하고<br>데이터를 분석하여 당신의 마음을 알려드립니다.</p>
+			</div>
+			<img src="mindmirror.png" class="absolute mindmirror">
+		</div>
+	</div>
+	<div class="black height flex">
+		<div class="col-3 textcenter">
+			<div style="height:400px"></div>
+			<h2 class="textgreen1">감정 분석</h2>
+			<p class="textwhite">현재 당신의 감정을 그래프로 보여드립니다.<br>전체적인 감정 상태를 이모티콘으로 확인하고,<br>마음거울이 세부적으로 분석한 감정을<br>그래프를 통해 확인할 수 있습니다.</p>
+		</div>
+		<div class="col-3 textcenter">
+			<div style="height:400px"></div>
+			<h2 class="textgreen1">최근 감정 그래프</h2>
+			<p class="textwhite">최근 7일간의 감정 상태를 분석하여<br>그래프와 글로 보여드립니다. <br> 당신의 감정 상태에 따라 도움이 될만한 <br>글귀와 해결방안을 제안합니다.</p>
+		</div>
+	</div>
+	</section>
+	
+
+	<section class="green2">
+	<div class="flex back green2 height" id="e">
+		<div class="col-6">
+			<h1 class="textgreen1" style="text-align:center; padding-top: 50px;">
+			사용방법</h1>
+		</div>
+		<div class="col-2 flex textwhite">
+			<div class="guideimg"><img src="howto1.png" style="width:374px"></div>
+			<div class="textcenter"><p>마음거울을 바라봅니다.</p></div>
+			</div>
+		<div class="col-2 flex textwhite" style="text-align:center;">
+			<div class="guideimg"><img src="howto2.png" style="width:374px"></div>
+				<p>센서에 손을 대고 10초간 기다립니다.</p>
+			</div>
+		<div class="col-2 flex textwhite">
+			<div class="guideimg"><img src="howto3.png" style="width:374px"></div>
+				<p>이제 당신의 감정을 확인하세요!</p>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section class="white">
+	<div class="flex back white height relative" id="f">
+		<img src="option1.png" class="absolute width z0">
+
+		<div class="flex col-3 relative">
+			<img src="mirror1.png" class="optionhov1_0 z1">
+			<img src="1censor.png" class="optionhov1_1 z1">
+		</div>
+
+		<div class="col-3 pageoption1 z1">
+			<p id="font25" style="padding-bottom:15px">
+			Option1.<br>주머니에 쏙! 들어가는 소형 거울
+			</p>
+			<p class="explain">
+			바깥에서 내 마음을 확인하고 싶을 때 사용해요.<br>표정관리가 필요한 상황에서는 사용하지 않는 것을 권장합니다.
+			</p>
+			<p class="font15" style="margin-top:10px; color:gray;">배송정보 : 14:00이전 결제시 당일배송</p>
+			<p>29900원</p>
+			<input class="clickbutton" type="button" onclick="alert('장바구니에 담았습니다.')" value="담기">
+			<input class="clickbutton" type="button" onclick="alert('아쉽지만 품절되었습니다.')" value="구매하기">
+		</div>
+	</div>
+	</section>
+
+	<section class="black opt2">
+	<div class="flex back black bg-none height relative" id="g">
+		<img src="option2.png" class="absolute width z0">
+		
+		<div class="flex col-3 relative">
+			<img src="mirror22.png" class="optionhov2_0 z2">
+			<img src="2censor.png" class=" optionhov2_1 z2">
+		</div>	
+		<div class="col-3 pageoption23 z2">
+			<p id="font25" style="padding-bottom:15px">
+			Option2.<br>여기저기 두고 쓸 수 있는 탁상형 거울
+			</p>
+			<p class="explain z2">
+			사무실에서, 학교에서, 방 안에서<br>
+			원하는 공간에 비치하고 사용할 수 있어요.
+			</p>
+			<p class="font15 z2" style="margin-top:10px; color:gray;">배송정보 : 14:00이전 결제시 당일배송</p>
+			<p>39900원</p>
+			<input class="clickbutton z2" type="button" onclick="alert('장바구니에 담았습니다.')" value="담기">
+			<input class="clickbutton z2" type="button" onclick="alert('품절되었습니다.')" value="구매하기">
+		</div>
+	</div>
+	</section>
+
+	<section class="white">
+	<div class="flex back white height" id="h">
+		<img src="option3.png" class="absolute width z0">
+
+		<div class="col-3 relative z1">
+			<img src="mirror3.png" class="optionhov3_0">
+			<img src="3censor.png" class="optionhov3_1">
+		</div>
+		<div class="col-3 pageoption23 z1">
+			<p id="font25" style="padding-bottom:15px">
+			Option3.<br>벽에 걸고 사용할 수 있는 벽걸이 거울
+			</p>
+			<p class="explain">
+			외출하기 전, 혹은 외출하고 돌아온 후<br>
+			거울을 보고 마음을 확인해봐요.
+			</p>
+			<p class="font15" style="margin-top:10px; color:gray;">배송정보 : 14:00이전 결제시 당일배송</p>
+			<p>79900원</p>
+			<input class="clickbutton" type="button" onclick="alert('장바구니에 담았습니다.')" value="담기">
+			<input class="clickbutton" type="button" onclick="alert('품절되었습니다.')" value="구매하기">
+		</div>
+	</div>
+	</section>
+
+	<section class="paper">
+	<div class="flex back green1 height relative" id="i">
+
+		<div class="col-3" style="z-index: 3;"></div>
+		<div class="col-3" style="z-index: 3;">
+			<div>
+			<p style="font-size: 30pt;padding-top: 12vh;">
+			Special Option
+			</p>
+			<p style="font-size: 22pt;">
+				메세지를 적어주시면 엽서를 동봉해드려요.
+			</p>
+			<p>소중한 사람에게 따뜻한 메세지를 전달해보세요!</p>
+			</div>
+
+			<div class="relative" style="padding-top:5vh">
+			<textarea rows="5" cols="50" placeholder="메세지를 입력해주세요."></textarea>
+			<input class="clickbutton absolute" style="right:3vw; top:21vh;" type="button" onclick="alert('저장되었습니다.')" value="저장하기">
+			</div>
+		</div>
+	<img src="box0.png" class="absolute z0" style="width: 734px;bottom:0">
+	<img src="box1.png" class="absolute z2" style="width: 734px;bottom:0">
+	<img src="msgrain3.gif" class="absolute z1" style="opacity: 75%;">
+	</div>
+	</section>
+	
+	<!-- <section class="white">
+		<div class="back white height textcenter" style="padding-top:122px;" id="i">
+			<p id="font25">
+				구성
+			</p>
+		</div>
+	</section> -->
+
+	<section class="green2 height15">
+	<div class="flex height15 green2 relative" id="i">
+		<div class="col-1"></div>
+		<div class="col-4 cautiontext z2">
+			<h2 style="text-align: center;">
+			 주의사항
+			</h2>
+		<ol class="cautionli z2">
+			<br><li>파손에 유의해주세요.</li>
+			<br><li>
+			타인의 마음은 읽을 수 없어요.</li>
+			<br><li>
+			마음거울은 돌려 말하지 않습니다. 자신의 실체를 마주하기 힘들 것 같다면 구매를 삼가시는 것을 권장합니다.</li>
+			<br><li>
+			배터리 충전은 전용 충전기를 사용해주세요.</li>
+			<br><li>
+			충전 단자에 물이 들어가지 않도록 주의해주세요.</li>
+			<br><li>
+			배터리가 충전되지 않으면 감정분석이 불가능합니다.</li>
+			<br><li>
+			충전시 교류 220V 이외에는 사용하지 마세요.</li>
+		</ol>
+		</div>
+		<div class="col-1"></div>
+		<img src="cautionn.png" class="absolute z0" style="width: 756px;left: 222px; top: 10vh;">
+		<img src="logo.png" class="absolute z0" style="width:180px; top: 127vh; left: 515px;">
+	</div>
+	</section>
+
+	<section class="black">
+	<div class="flex height0 black textwhite">
+		<div class="col-2">
+			<img src="logo.png" class="logo">
+			<p style="font-size:16px; padding-left:45px">copyright SUO all rights reserved 
+		</div>
+		<div class="col-2" style="padding-top: 95px">
+			<p style="font-size:24px; margin-bottom: 10px;">교환/반품 안내</p>
+			<p style="font-size:16px">배송완료 후 14일 이내 교환 또는 환불이 가능합니다.<br>자세한 교환/반품 규정은 배송 시 제공되는 안내서를 참고해주세요.
+			</p>
+		</div>
+		<div class="col-2" style="padding-top: 95px">
+			<p style="font-size:24px; margin-bottom: 10px;">고객상담센터</p>
+			<p style="font-size:16px">123-456-789
+			<br>상담가능시간 : 10:00~19:00
+			<br>(주말/법정공휴일 휴무)
+			</p>
+		</div>
+		</div>
+	</div>
+	</section>
+</body>
+</html>
